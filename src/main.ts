@@ -31,5 +31,6 @@ import { Application, Assets, Sprite } from "pixi.js";
     // * Delta is 1 if running at 100% performance *
     // * Creates frame-independent transformation *
     bunny.rotation += 0.1 * time.deltaTime;
+    bunny.x += 0.5;
   });
 })();
