@@ -1,0 +1,62 @@
+{
+    "home":{
+        "startingScreen":"screen1",
+        "screens":{
+            "screen1":{
+                "name":"Screen 1",
+                "description":"This is the first screen of the game.",
+                "backgroundColor":"#FFFFFF",
+                "sections":[
+                    [
+                        {
+                            "passable":true,
+                            "texture":"assets/grass.jpg"
+                        },
+                        {
+                            "passable":true,
+                            "texture":"assets/grass.jpg"
+                        },
+                        {
+                            "passable":true,
+                            "texture":"assets/grass.jpg"
+                        }
+                    ],
+                    [
+                        {
+                            "passable":true,
+                            "texture":"assets/grass.jpg"
+                        },
+                        {
+                            "passable":false,
+                            "texture":"assets/rock.jpg"
+                        },
+                        {
+                            "passable":true,
+                            "texture":"assets/grass.jpg"
+                        }
+                    ],
+                    [
+                        {
+                            "passable":true,
+                            "texture":"assets/grass.jpg"
+                        },
+                        {
+                            "passable":true,
+                            "texture":"assets/grass.jpg"
+                        },
+                        {
+                            "passable":true,
+                            "texture":"assets/grass.jpg"
+                        }
+                    ]
+                ]
+            },
+            "screen2":{
+                "name":"Screen 2",
+                "description":"This is the second screen of the game.",
+                "backgroundColor":"#FFFFFF",
+                "sections":[]
+            }
+        }
+    }
+}

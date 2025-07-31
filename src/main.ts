@@ -1,6 +1,7 @@
 import { Application, Assets, Sprite } from "pixi.js";
 
 import { Character } from "./character";
+import { Screen } from "./screen";
 
 (async () => {
   // Create a new application
@@ -12,10 +13,23 @@ import { Character } from "./character";
   // Append the application canvas to the document body
   document.getElementById("pixi-container")!.appendChild(app.canvas);
 
-  
-
   // Load the bunny texture
   const texture = await Assets.load("/assets/bunny.png");
+
+  const levels = await Assets.load("/assets/levels.json");
+
+  let state = {
+    "currentLevel": "home",
+    "currentScreen": null
+  };
+
+  console.log(levels);
+
+  let currentLevel = levels[state.currentLevel];
+
+  state.currentScreen = currentLevel.screens[currentLevel.startScreen];
+
+  const screen = new Screen(state.currentScreen);
 
   // Create a bunny Sprite
   const bunny = new Sprite(texture);
