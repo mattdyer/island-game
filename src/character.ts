@@ -8,20 +8,20 @@ class Character{
         this.document = document;
     }
 
-    addEventListeners(bunny: Sprite) {
+    addEventListeners(guy: Sprite) {
         this.document.addEventListener("keydown", (event) => {
             
             if (event.key === "ArrowRight" || event.key === "d") {
-              bunny.x += 10; // Move bunny to the right
+              guy.x += 10; // Move guy to the right
             }
             if (event.key === "ArrowLeft" || event.key === "a") {
-              bunny.x -= 10; // Move bunny to the left
+              guy.x -= 10; // Move guy to the left
             }
             if (event.key === "ArrowUp" || event.key === "w") {
-              bunny.y -= 10; // Move bunny up
+              guy.y -= 10; // Move guy up
             }
             if (event.key === "ArrowDown" || event.key === "s") {
-              bunny.y += 10; // Move bunny down
+              guy.y += 10; // Move guy down
             }
           });
     }
