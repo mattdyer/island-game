@@ -1,5 +1,7 @@
 import { Sprite } from "pixi.js";
 
+import { Screen } from "./screen";
+
 class Character{
 
     document: Document;
@@ -8,8 +10,12 @@ class Character{
         this.document = document;
     }
 
-    addEventListeners(guy: Sprite) {
+    addEventListeners(guy: Sprite, screen: Screen) {
         this.document.addEventListener("keydown", (event) => {
+
+            let currentSection = screen.getCurrentSection(guy.x, guy.y);
+
+            console.log("Current section:", currentSection);
             
             if (event.key === "ArrowRight" || event.key === "d") {
               guy.x += 10; // Move guy to the right

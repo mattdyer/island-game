@@ -35,7 +35,7 @@ import { Screen } from "./screen";
 
   const character = new Character(document);
 
-  character.addEventListeners(guy);
+  character.addEventListeners(guy, screen);
 
   // Center the sprite's anchor point
   guy.anchor.set(0.5);
