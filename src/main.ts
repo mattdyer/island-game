@@ -23,13 +23,14 @@ import { Screen } from "./screen";
     "currentScreen": null
   };
 
-  console.log(levels);
-
   let currentLevel = levels[state.currentLevel];
 
-  state.currentScreen = currentLevel.screens[currentLevel.startScreen];
+  state.currentScreen = currentLevel.screens[currentLevel.startingScreen];
+
 
   const screen = new Screen(state.currentScreen);
+
+  await screen.draw(app);
 
   // Create a bunny Sprite
   const bunny = new Sprite(texture);
