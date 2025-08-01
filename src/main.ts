@@ -35,7 +35,7 @@ import { Screen } from "./screen";
 
   const character = new Character(document);
 
-  character.addEventListeners(guy, screen);
+  character.addEventListeners();
 
   // Center the sprite's anchor point
   guy.anchor.set(0.5);
@@ -48,6 +48,7 @@ import { Screen } from "./screen";
 
   // Listen for animate update
   app.ticker.add((time) => {
-    character.move(guy, screen);
+    character.move(guy, screen, time);
   });
+
 })();

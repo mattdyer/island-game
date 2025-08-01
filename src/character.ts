@@ -11,8 +11,8 @@ class Character{
         this.document = document;
     }
 
-    move(guy: Sprite, screen: Screen) {
-        let currentSection = screen.getSectionFromCoords(guy.x, guy.y);
+    move(guy: Sprite, screen: Screen, time: any) {
+        //let currentSection = screen.getSectionFromCoords(guy.x, guy.y);
 
         let newX = guy.x;
         let newY = guy.y;
@@ -38,7 +38,7 @@ class Character{
         }
     }
 
-    addEventListeners(guy: Sprite, screen: Screen) {
+    addEventListeners() {
         
         this.document.addEventListener("keyup", (event) => {
             this.keysDown.delete(event.key);
@@ -47,31 +47,6 @@ class Character{
         this.document.addEventListener("keydown", (event) => {
 
             this.keysDown.add(event.key);
-            
-            /*let currentSection = screen.getSectionFromCoords(guy.x, guy.y);
-
-            let newX = guy.x;
-            let newY = guy.y;
-            
-            if (event.key === "ArrowRight" || event.key === "d") {
-              newX += 5; // Move guy to the right
-            }
-            if (event.key === "ArrowLeft" || event.key === "a") {
-              newX -= 5; // Move guy to the left
-            }
-            if (event.key === "ArrowUp" || event.key === "w") {
-              newY -= 5; // Move guy up
-            }
-            if (event.key === "ArrowDown" || event.key === "s") {
-              newY += 5; // Move guy down
-            }
-
-            let newSection = screen.getSectionFromCoords(newX, newY);
-
-            if(newSection.passable) {
-                guy.x = newX;
-                guy.y = newY;
-            }*/
 
         });
     }
