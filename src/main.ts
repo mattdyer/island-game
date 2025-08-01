@@ -41,17 +41,13 @@ import { Screen } from "./screen";
   guy.anchor.set(0.5);
 
   // Move the sprite to the center of the screen
-  guy.position.set(app.screen.width / 2, app.screen.height / 2);
+  guy.position.set(10, 10);
 
   // Add the guy to the stage
   app.stage.addChild(guy);
 
   // Listen for animate update
   app.ticker.add((time) => {
-    // Just for fun, let's rotate mr rabbit a little.
-    // * Delta is 1 if running at 100% performance *
-    // * Creates frame-independent transformation *
-    //guy.rotation += 0.1 * time.deltaTime;
-    //guy.x += 0.5;
+    character.move(guy, screen);
   });
 })();

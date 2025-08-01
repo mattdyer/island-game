@@ -41,10 +41,10 @@ class Screen{
             }
         }
 
-        console.log("Screen dimensions:", width, "x", height);
+        //console.log("Screen dimensions:", width, "x", height);
     }
 
-    getCurrentSection(x: number, y: number) {
+    getSectionFromCoords(x: number, y: number) {
         let sectionWidth = this.screenData.sections[0].length;
         let sectionHeight = this.screenData.sections.length;
 
@@ -55,7 +55,7 @@ class Screen{
             return null; // Out of bounds
         }
 
-        console.log("Section coordinates:", sectionX, sectionY);
+        //console.log("Section coordinates:", sectionX, sectionY);
 
         return this.screenData.sections[sectionY][sectionX];
     }
