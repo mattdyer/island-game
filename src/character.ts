@@ -30,7 +30,7 @@ class Character{
             newY += 5; // Move guy down
         }
 
-        let newSection = screen.getSectionFromCoords(newX, newY + (guy.height / 3));
+        let newSection = screen.getSectionFromCoords(newX, newY + (guy.height / 2.5));
 
         //console.log(guy.width);
         //console.log(guy.height);
