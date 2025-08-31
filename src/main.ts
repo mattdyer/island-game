@@ -33,7 +33,7 @@ import { Screen } from "./screen";
 
   const guy = new Sprite(texture);
 
-  const character = new Character(document);
+  const character = new Character(document, state);
 
   character.addEventListeners();
 
@@ -49,6 +49,7 @@ import { Screen } from "./screen";
   // Listen for animate update
   app.ticker.add((time) => {
     character.move(guy, screen, time);
+    //console.log(state.currentScreen);
   });
 
 })();

@@ -5,14 +5,20 @@ import { Screen } from "./screen";
 class Character{
 
     document: Document;
+    state: any;
     keysDown: Set<string> = new Set();
     
-    constructor(document: Document) {
+    constructor(document: Document, state: any) {
         this.document = document;
+        this.state = state;
     }
 
     move(guy: Sprite, screen: Screen, time: any) {
-        //let currentSection = screen.getSectionFromCoords(guy.x, guy.y);
+        let currentSection = screen.getSectionFromCoords(guy.x, guy.y);
+
+        if(currentSection.screenChangeTrigger) {
+            this.state.currentScreen = currentSection.screenChangeTrigger;
+        }
 
         let newX = guy.x;
         let newY = guy.y;
@@ -38,6 +44,11 @@ class Character{
         if(newSection.passable) {
             guy.x = newX;
             guy.y = newY;
+        }
+
+        if(currentSection.screenChangeTrigger) {
+            this.state.currentScreen = currentSection.screenChangeTrigger;
+            guy.position.set(10, 10);
         }
     }
 
