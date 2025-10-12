@@ -2059,9 +2059,10 @@
                             "passable":true,
                             "texture":"assets/grass.jpg"
                         },
-                        {
+                         {
+                            "screenChangeTrigger":"screen2",
                             "passable":true,
-                            "texture":"assets/grass.jpg"
+                            "texture":"assets/trigger.jpg"
                         },
                          {
                             "passable":true,
@@ -2323,10 +2324,9 @@
                             "passable":true,
                             "texture":"assets/grass.jpg"
                         },
-                         {
-                            "screenChangeTrigger":"screen2",
+                        {
                             "passable":true,
-                            "texture":"assets/trigger.jpg"
+                            "texture":"assets/grass.jpg"
                         },
                         {
                             "passable":true,
