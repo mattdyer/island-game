@@ -47,8 +47,7 @@ class Character{
         }
 
         if(currentSection.screenChangeTrigger) {
-            this.state.currentScreen = currentSection.screenChangeTrigger;
-            guy.position.set(10, 10);
+            this.state.newScreen = currentSection.screenChangeTrigger;
         }
     }
 

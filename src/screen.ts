@@ -10,6 +10,13 @@ class Screen{
         
     }
 
+    async change(screenData: any, app: Application, guy: Sprite) {
+        this.screenData = screenData;
+        await this.draw(app);
+        app.stage.removeChild(guy);
+        app.stage.addChild(guy);
+    }
+
 
     async draw(app: Application) {
         

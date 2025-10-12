@@ -19,12 +19,15 @@ import { Screen } from "./screen";
 
   let state = {
     "currentLevel": "home",
-    "currentScreen": null
+    "currentScreen": null,
+    "newScreen": null
   };
 
   let currentLevel = levels[state.currentLevel];
 
-  state.currentScreen = currentLevel.screens[currentLevel.startingScreen];
+  let screens = await Assets.load("/assets/levels/" + currentLevel.screenFile);
+
+  state.currentScreen = screens[currentLevel.startingScreen];
 
 
   const screen = new Screen(state.currentScreen);
@@ -40,7 +43,6 @@ import { Screen } from "./screen";
   // Center the sprite's anchor point
   guy.anchor.set(0.5);
 
-  // Move the sprite to the center of the screen
   guy.position.set(10, 10);
 
   // Add the guy to the stage
@@ -49,6 +51,17 @@ import { Screen } from "./screen";
   // Listen for animate update
   app.ticker.add((time) => {
     character.move(guy, screen, time);
+
+    if(state.newScreen) {
+        state.currentScreen = screens[state.newScreen];
+        state.newScreen = null;
+        guy.position.set(10, 10);
+        screen.change(state.currentScreen, app, guy);
+        
+    }
+
+
+    //screen.draw(app);
     //console.log(state.currentScreen);
   });
 
