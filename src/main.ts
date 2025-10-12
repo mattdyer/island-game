@@ -29,8 +29,10 @@ import { Screen } from "./screen";
 
   state.currentScreen = screens[currentLevel.startingScreen];
 
+  let sections = await Assets.load("/assets/levels/" + state.currentLevel + "/" + screens[currentLevel.startingScreen].sectionFile);
 
-  const screen = new Screen(state.currentScreen);
+
+  const screen = new Screen(state.currentScreen, sections);
 
   await screen.draw(app);
 
@@ -53,11 +55,12 @@ import { Screen } from "./screen";
     character.move(guy, screen, time);
 
     if(state.newScreen) {
-        state.currentScreen = screens[state.newScreen];
-        state.newScreen = null;
         guy.position.set(10, 10);
-        screen.change(state.currentScreen, app, guy);
-        
+        state.currentScreen = screens[state.newScreen];
+        screen.change(state.currentScreen, state.currentLevel, screens[state.newScreen].sectionFile, app, guy).then((newScreenData) => {
+          state.newScreen = null;
+          sections = newScreenData;
+        });
     }
 
 

@@ -3,18 +3,23 @@ import { Application, Assets, Sprite } from "pixi.js";
 class Screen{
 
     screenData: any;
+    sections: any;
     
-    constructor(screenData: any) {
+    constructor(screenData: any, sections: any) {
         
         this.screenData = screenData;
+        this.sections = sections;
         
     }
 
-    async change(screenData: any, app: Application, guy: Sprite) {
-        this.screenData = screenData;
+    async change(currentScreen: any, currentLevel: String, sectionFile: String, app: Application, guy: Sprite) {
+        this.screenData = currentScreen;
+        this.sections = await Assets.load("/assets/levels/" + currentLevel + "/" + sectionFile);;
         await this.draw(app);
         app.stage.removeChild(guy);
         app.stage.addChild(guy);
+
+        return this.sections;
     }
 
 
@@ -22,8 +27,8 @@ class Screen{
         
         console.log("Drawing screen:", this.screenData);
         
-        let width = this.screenData.sections[0].length;
-        let height = this.screenData.sections.length;
+        let width = this.sections[0].length;
+        let height = this.sections.length;
 
         let screenWidth = app.screen.width;
         let screenHeight = app.screen.height;
@@ -33,7 +38,7 @@ class Screen{
 
         for (let y = 0; y < height; y++) {
             for (let x = 0; x < width; x++) {
-                let section = this.screenData.sections[y][x];
+                let section = this.sections[y][x];
                 
                 let texture = await Assets.load(section.texture);
 
@@ -52,8 +57,8 @@ class Screen{
     }
 
     getSectionFromCoords(x: number, y: number) {
-        let sectionWidth = this.screenData.sections[0].length;
-        let sectionHeight = this.screenData.sections.length;
+        let sectionWidth = this.sections[0].length;
+        let sectionHeight = this.sections.length;
 
         let sectionX = Math.floor(x / (window.innerWidth / sectionWidth));
         let sectionY = Math.floor(y / (window.innerHeight / sectionHeight));
@@ -64,7 +69,7 @@ class Screen{
 
         //console.log("Section coordinates:", sectionX, sectionY);
 
-        return this.screenData.sections[sectionY][sectionX];
+        return this.sections[sectionY][sectionX];
     }
 
 }
