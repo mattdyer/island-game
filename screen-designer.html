@@ -41,9 +41,11 @@
             </div>
 
             <button id="export-json">Export JSON</button>
+            <button id="load-json">Load JSON</button>
         </div>
         <div id="pixi-container"></div>
-        <textarea id="json-output" style="width: 100%; height: 100px; margin-top: 10px; display: none;"></textarea>
+        <textarea id="json-output" style="width: 100%; height: 100px; margin-top: 10px; display: block;"
+            placeholder="Paste JSON here to load, or click Export to see result"></textarea>
     </div>
     <script type="module" src="/src/designer.ts"></script>
 </body>

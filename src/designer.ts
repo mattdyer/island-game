@@ -142,9 +142,42 @@ interface TileData {
     console.log("Exported JSON:", json);
   }
 
+  function loadJSON() {
+    try {
+      const json = jsonOutput.value;
+      if (!json) {
+        alert("Please paste JSON into the textarea first.");
+        return;
+      }
+      const data = JSON.parse(json);
+
+      // Validate basic structure (array of arrays)
+      if (!Array.isArray(data) || !Array.isArray(data[0])) {
+        alert("Invalid JSON format: Expected a 2D array.");
+        return;
+      }
+
+      gridData = data;
+      gridHeight = gridData.length;
+      gridWidth = gridData[0].length;
+
+      // Update inputs
+      widthInput.value = gridWidth.toString();
+      heightInput.value = gridHeight.toString();
+
+      renderGrid();
+      console.log("Loaded JSON");
+
+    } catch (e) {
+      console.error("Error parsing JSON:", e);
+      alert("Error parsing JSON. Check console for details.");
+    }
+  }
+
   // Event Listeners
   createBtn.addEventListener("click", createGrid);
   exportBtn.addEventListener("click", exportJSON);
+  document.getElementById("load-json")!.addEventListener("click", loadJSON);
 
   // Initial Grid
   createGrid();
