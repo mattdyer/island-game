@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -7,11 +8,44 @@
     <link rel="stylesheet" href="/style.css">
     <title>PixiJS - Template</title>
 </head>
+<style>
+    #app {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+        overflow: auto !important;
+    }
+
+    #pixi-container {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
 
 <body>
     <div id="app">
+        <div id="controls"
+            style="padding: 10px; background: #eee; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <label>Width: <input type="number" id="grid-width" value="10" min="1" style="width: 50px;"></label>
+            <label>Height: <input type="number" id="grid-height" value="10" min="1" style="width: 50px;"></label>
+            <button id="create-grid">Create Grid</button>
+
+            <div style="border-left: 1px solid #ccc; padding-left: 10px; display: flex; gap: 10px;">
+                <label><input type="radio" name="tile-type" value="grass" checked> Grass</label>
+                <label><input type="radio" name="tile-type" value="rock"> Rock</label>
+                <label><input type="radio" name="tile-type" value="trigger"> Trigger</label>
+            </div>
+
+            <button id="export-json">Export JSON</button>
+        </div>
         <div id="pixi-container"></div>
+        <textarea id="json-output" style="width: 100%; height: 100px; margin-top: 10px; display: none;"></textarea>
     </div>
     <script type="module" src="/src/designer.ts"></script>
 </body>
+
 </html>

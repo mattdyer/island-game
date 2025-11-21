@@ -1,16 +1,23 @@
 {
-            "screen1":{
-                "name":"Screen 1",
-                "description":"This is the first screen of the game.",
-                "backgroundColor":"#FFFFFF",
-                "sectionFile":"screen1.json",
-                "sections":[]
-            },
-            "screen2":{
-                "name":"Screen 2",
-                "description":"This is the second screen of the game.",
-                "backgroundColor":"#FFFFFF",
-                "sectionFile":"screen2.json",
-                "sections":[]
-            }
-        }
+    "screen1": {
+        "name": "Screen 1",
+        "description": "This is the first screen of the game.",
+        "backgroundColor": "#FFFFFF",
+        "sectionFile": "screen1.json",
+        "sections": []
+    },
+    "screen2": {
+        "name": "Screen 2",
+        "description": "This is the second screen of the game.",
+        "backgroundColor": "#FFFFFF",
+        "sectionFile": "screen2.json",
+        "sections": []
+    },
+    "screen3": {
+        "name": "Screen 3",
+        "description": "This is the third screen of the game.",
+        "backgroundColor": "#FFFFFF",
+        "sectionFile": "screen3.json",
+        "sections": []
+    }
+}

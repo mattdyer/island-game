@@ -1,45 +1,45 @@
 [
     [
         {
-            "passable":true,
-            "texture":"assets/grass.jpg"
-        },
-            {
-            "passable":true,
-            "texture":"assets/grass.jpg"
+            "passable": true,
+            "texture": "assets/grass.jpg"
         },
         {
-            "passable":true,
-            "texture":"assets/grass.jpg"
+            "passable": true,
+            "texture": "assets/grass.jpg"
+        },
+        {
+            "passable": true,
+            "texture": "assets/grass.jpg"
         }
     ],
     [
         {
-            "passable":true,
-            "texture":"assets/grass.jpg"
-        },
-            {
-            "passable":true,
-            "texture":"assets/grass.jpg"
+            "passable": true,
+            "texture": "assets/grass.jpg"
         },
         {
-            "passable":true,
-            "texture":"assets/grass.jpg"
+            "passable": true,
+            "texture": "assets/grass.jpg"
+        },
+        {
+            "passable": true,
+            "texture": "assets/grass.jpg"
         }
     ],
     [
         {
-            "passable":true,
-            "texture":"assets/grass.jpg"
-        },
-            {
-            "passable":true,
-            "texture":"assets/grass.jpg"
+            "passable": true,
+            "texture": "assets/grass.jpg"
         },
         {
-            "screenChangeTrigger":"screen1",
-            "passable":true,
-            "texture":"assets/trigger.jpg"
+            "passable": true,
+            "texture": "assets/grass.jpg"
+        },
+        {
+            "screenChangeTrigger": "screen3",
+            "passable": true,
+            "texture": "assets/trigger.jpg"
         }
     ]
 ]
