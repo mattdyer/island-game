@@ -1,6 +1,10 @@
 {
-    "home":{
-        "startingScreen":"screen1",
-        "screenFile":"home.json"
+    "home": {
+        "startingScreen": "screen1",
+        "screenFile": "home.json"
+    },
+    "island1": {
+        "startingScreen": "screen1",
+        "screenFile": "island1.json"
     }
 }

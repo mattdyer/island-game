@@ -279,7 +279,7 @@
         {
             "passable": true,
             "texture": "assets/trigger.jpg",
-            "screenChangeTrigger": "screen1"
+            "levelChangeTrigger": "island1"
         },
         {
             "passable": false,

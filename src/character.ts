@@ -2,12 +2,12 @@ import { Sprite } from "pixi.js";
 
 import { Screen } from "./screen";
 
-class Character{
+class Character {
 
     document: Document;
     state: any;
     keysDown: Set<string> = new Set();
-    
+
     constructor(document: Document, state: any) {
         this.document = document;
         this.state = state;
@@ -16,13 +16,17 @@ class Character{
     move(guy: Sprite, screen: Screen, time: any) {
         let currentSection = screen.getSectionFromCoords(guy.x, guy.y);
 
-        if(currentSection.screenChangeTrigger) {
+        if (currentSection.screenChangeTrigger) {
             this.state.currentScreen = currentSection.screenChangeTrigger;
+        }
+
+        if (currentSection.levelChangeTrigger) {
+            this.state.currentLevel = currentSection.levelChangeTrigger;
         }
 
         let newX = guy.x;
         let newY = guy.y;
-        
+
         if (this.keysDown.has("ArrowRight") || this.keysDown.has("d")) {
             newX += 5; // Move guy to the right
         }
@@ -41,22 +45,26 @@ class Character{
         //console.log(guy.width);
         //console.log(guy.height);
 
-        if(newSection.passable) {
+        if (newSection.passable) {
             guy.x = newX;
             guy.y = newY;
         }
 
-        if(currentSection.screenChangeTrigger) {
+        if (currentSection.screenChangeTrigger) {
             this.state.newScreen = currentSection.screenChangeTrigger;
+        }
+
+        if (currentSection.levelChangeTrigger) {
+            this.state.newLevel = currentSection.levelChangeTrigger;
         }
     }
 
     addEventListeners() {
-        
+
         this.document.addEventListener("keyup", (event) => {
             this.keysDown.delete(event.key);
         });
-        
+
         this.document.addEventListener("keydown", (event) => {
 
             this.keysDown.add(event.key);

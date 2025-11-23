@@ -1,0 +1,9 @@
+{
+    "screen1": {
+        "name": "Screen 1",
+        "description": "This is the first screen of the game.",
+        "backgroundColor": "#FFFFFF",
+        "sectionFile": "screen1.json",
+        "sections": []
+    }
+}

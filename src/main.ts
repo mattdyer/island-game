@@ -20,7 +20,8 @@ import { Screen } from "./screen";
   let state = {
     "currentLevel": "home",
     "currentScreen": null,
-    "newScreen": null
+    "newScreen": null,
+    "newLevel": null
   };
 
   let currentLevel = levels[state.currentLevel];
@@ -54,13 +55,22 @@ import { Screen } from "./screen";
   app.ticker.add((time) => {
     character.move(guy, screen, time);
 
-    if(state.newScreen) {
-        guy.position.set(10, 10);
-        state.currentScreen = screens[state.newScreen];
-        screen.change(state.currentScreen, state.currentLevel, screens[state.newScreen].sectionFile, app, guy).then((newScreenData) => {
-          state.newScreen = null;
-          sections = newScreenData;
-        });
+    if (state.newScreen) {
+      guy.position.set(10, 10);
+      state.currentScreen = screens[state.newScreen];
+      screen.change(state.currentScreen, state.currentLevel, screens[state.newScreen].sectionFile, app, guy).then((newScreenData) => {
+        state.newScreen = null;
+        sections = newScreenData;
+      });
+    }
+
+    if (state.newLevel) {
+      guy.position.set(10, 10);
+      state.currentLevel = state.newLevel;
+      let currentLevel = levels[state.currentLevel];
+      state.currentScreen = screens[currentLevel.startingScreen];
+      loadLevel(currentLevel, state.currentLevel, state.currentScreen, app, guy);
+      state.newLevel = null;
     }
 
 
@@ -69,3 +79,15 @@ import { Screen } from "./screen";
   });
 
 })();
+
+async function loadLevel(currentLevel: any, currentLevelName: string, currentScreen: any, app: Application, guy: Sprite) {
+
+  let screens = await Assets.load("/assets/levels/" + currentLevel.screenFile);
+
+  let sections = await Assets.load("/assets/levels/" + currentLevelName + "/" + screens[currentLevel.startingScreen].sectionFile);
+
+  const screen = new Screen(currentScreen, sections);
+  await screen.change(currentScreen, currentLevel, screens[currentLevel.startingScreen].sectionFile, app, guy).then((newScreenData) => {
+    sections = newScreenData;
+  });
+}
